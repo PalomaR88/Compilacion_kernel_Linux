@@ -147,8 +147,31 @@ Con la opción localmodconfig se configura el fichero .config adaptandolo a las 
 $ make localmodconfig
 ~~~
 
+### Configuración de .config
+Esta configuración se puede hacer con las siguientes bibliotecas de desarrollo:
+- menuconfig (este es el que vamos a utilizar)
+~~~
+sudo apt-get install libncurses5-dev
+make nconfig
+~~~
 
+- gconfig
+~~~
+sudo apt-get install libgtk2.0-dev libglib2.0-dev libglade2-dev
+make gconfig
+~~~
 
+-xconfig
+~~~
+sudo apt-get install libqt4-dev
+make xconfig
+~~~
 
+### Compilación
+Para compilar se usa el siguiente comando:
+~~~
+$ make -j2 deb-pkg
+~~~
 
-
+> **-j** es para indicar los núcleos que usaremos para la compilación.
+ 
