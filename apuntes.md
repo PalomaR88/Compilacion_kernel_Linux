@@ -124,6 +124,11 @@ Se descomprime el fichero .tar que se crea en /usr/src/ en el directorio donde s
 $ tar -xf /usr/src/linux-source-4.19.tar.xz 
 ~~~
 
+Se copia el fichero .config que se usa actualmente:
+~~~
+$ cp /boot/config-4.19.0-6-amd64 ./.config
+~~~
+
 > Para cambiar el nombre de las compilaciones que se van a realizar del kernel y, por tanto, tener un control de las diferentes versiones, se modifica el fichero Makefile en la línea EXTRAVERSION.
 ~~~
 # SPDX-License-Identifier: GPL-2.0
@@ -135,6 +140,11 @@ NAME = "People's Front"
 ~~~
 
 
+
+### Primera configuración del kernel - Adaptación a la máquina
+Con la opción localmodconfig se configura el fichero .config adaptandolo a las necesidades de nuetra máquina. 
+~~~
+$ make localmodconfig
 
 
 
