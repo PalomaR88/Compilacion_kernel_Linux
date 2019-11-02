@@ -1231,7 +1231,7 @@ include/config/auto.conf: \
 ifneq "$(ARCH)" "x86"
 include/config/auto.conf: FORCE
 endif
-ifneq "$(KERNELVERSION)" "4.19.67-2"
+ifneq "$(KERNELVERSION)" "4.19.67-3"
 include/config/auto.conf: FORCE
 endif
 ifneq "$(CC_VERSION_TEXT)" "gcc (Debian 8.3.0-6) 8.3.0"

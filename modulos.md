@@ -1,152 +1,176 @@
 Device Drivers  ---> 
-   
- │ [*] Block devices  --->                                              │
-
-
- ┌── Serial ATA and Parallel ATA drivers (libata) ──────────────────────┐
-
- │ [ ]   Verbose ATA error reporting                                    │
-
-
- ┌── Multiple devices driver support (RAID and LVM) ────────────────────┐
+     ┌── Networking support ────────────────────────────────────────────────┐
  │                                                                      │
- │        --- Multiple devices driver support (RAID and LVM)            │
- │        < >   RAID support                                            │
- │        < >   Block device as cache                                   │
- │        < >   Device mapper support  
-
- │ [ ] Fusion MPT device support  ----                                  │
-
- │ [ ] Macintosh device drivers  ----                                   │
-
-
- ┌── Network device support ────────────────────────────────────────────┐
+ │      --- Networking support                                          │
+ │            Networking options  --->                                  │
+ │      [*]   Amateur Radio support  --->                               │
+ │      < >   CAN bus subsystem support  ----                           │
+ │      <M>   Bluetooth subsystem support  --->                         │
+ │      < >   RxRPC session sockets                                     │
+ │      < >   KCM sockets                                               │
+ │      [*]   Wireless  --->                                            │
+ │      < >   WiMAX Wireless Broadband support  ----                    │
+ │      <M>   RF switch subsystem support  --->                         │
+ │      < >   Plan 9 Resource Sharing Support (9P2000)  ----            │
+ │      < >   CAIF support  ----                                        │
+ │      < >   Ceph core library                                         │
+ │      < >   NFC subsystem support  ----                               │
+ │      < >   Packet-sampling netlink channel  ----                     │
+ │      < >   Inter-FE based on IETF ForCES InterFE LFB  ----           │
+ │      [*]   Network light weight tunnels                              │
+ │      [*]     Execute BPF program as route nexthop action             │
+ │      <M>   Network physical/parent device Netlink interface          │
+ │      < >   Generic failover module                                   │
+        
+                              │
+┌── Networking options ────────────────────────────────────────────────┐
  │                                                                      │
- │ --- Network device support                                           │
- │ [ ]   Network core driver support                                    │
- │ < >   ARCnet support  ----                                           │
- │       *** CAIF transport drivers ***                                 │
- │       Distributed Switch Architecture drivers  ----                  │
- │ [*]   Ethernet driver support  --->   
-
-── Ethernet driver support ───────────────────────────────────────────┐
+ │ <*> Packet socket                                                    │
+ │ < >   Packet: sockets monitoring interface                           │
+ │ <*> Unix domain sockets                                              │
+ │ < >   UNIX: socket monitoring interface                              │
+ │ < > Transport Layer Security support                                 │
+ │ < > Transformation user configuration interface                      │
+ │ < > Transformation virtual interface                                 │
+ │ [*] Transformation sub policy support                                │
+ │ [*] Transformation migrate database                                  │
+ │ [ ] Transformation statistics                                        │
+ │ < > PF_KEY sockets                                                   │
+ │ [*] XDP sockets                                                      │
+ │ [*] TCP/IP networking                                                │
+ │ [*]   IP: multicasting                                               │
+ │ [*]   IP: advanced router                                            │
+ │ [*]     FIB TRIE statistics                                          │
+ │ [*]     IP: policy routing                                           │
+ │ [*]     IP: equal cost multipath                                     │
+ │ [*]     IP: verbose route monitoring                                 │
+ │ [ ]   IP: kernel level autoconfiguration                             │
+ │ < >   IP: tunneling                                                  │
+ │ < >   IP: GRE demultiplexer                                          │
+ │ [*]   IP: multicast routing                                          │
+ │ [*]     IP: multicast policy routing                                 │
+ │ [*]     IP: PIM-SM version 1 support                                 │
+ │ [*]     IP: PIM-SM version 2 support                                 │
+│ [*]   IP: TCP syncookie support                                      │
+ │ < >   IP: Foo (IP protocols) over UDP                                │
+ │ < >   IP: AH transformation                                          │
+ │ < >   IP: ESP transformation                                         │
+ │ < >   IP: IPComp transformation                                      │
+ │ < >   IP: IPsec transport mode                                       │
+ │ < >   IP: IPsec tunnel mode                                          │
+ │ < >   IP: IPsec BEET mode                                            │
+ │ < >   INET: socket monitoring interface                              │
+ │ [*]   TCP: advanced congestion control  --->                         │
+ │ [*]   TCP: MD5 Signature Option support (RFC2385)                    │
+ │ <*>   The IPv6 protocol  --->                                        │
+ │ [ ]   NetLabel subsystem support                                     │
+ │ -*- Security Marking                                                 │
+ │ [ ] Timestamping in PHY devices                                      │
+ │ [*] Network packet filtering framework (Netfilter)  --->             │
+ │ [ ] BPF based packet filtering framework (BPFILTER)  ----            │
+ │ < > The DCCP Protocol  ----                                          │
+ │ < > The SCTP Protocol  ----                                          │
+ │ < > The Reliable Datagram Sockets Protocol                           │
+ │ < > The TIPC Protocol  ----                                          │
+ │ < > Asynchronous Transfer Mode (ATM)                                 │
+ │ < > Layer Two Tunneling Protocol (L2TP)  ----                        │
+ │ < > 802.1d Ethernet Bridging                                         │
+ │ < > Distributed Switch Architecture                                  │
+ │ < > 802.1Q/802.1ad VLAN Support                                      │
+ │ < > DECnet Support                                                   │
+ │ < > ANSI/IEEE 802.2 LLC type 2 Support                               │
+ │ < > Appletalk protocol support                                       │
+ │ < > CCITT X.25 Packet Layer                                          │
+ │ < > LAPB Data Link Driver                                            │
+ │ < > Phonet protocols family                                          │
+ │ < > 6LoWPAN Support  ----                                            │
+ │ < > IEEE Std 802.15.4 Low-Rate Wireless Personal Area Networks su    │
+ │ [*] QoS and/or fair queueing  --->                                   │
+ │ [*] Data Center Bridging support                                     │
+ │ < > DNS Resolver support                                             │
+ │ < > B.A.T.M.A.N. Advanced Meshing Protocol                           │
+ │ < > Open vSwitch                                                     │
+ │ < > Virtual Socket protocol                                          │
+ │ < > NETLINK: socket monitoring interface                             │
+ │ [*] MultiProtocol Label Switching  --->                              │
+│ < > Network Service Header (NSH) protocol  ----                      │
+ │ < > High-availability Seamless Redundancy (HSR)                      │
+ │ [ ] Switch (and switch-ish) device support                           │
+ │ [*] L3 Master device support                                         │
+ │ [ ] NCSI interface support                                           │
+ │ [*] Network priority cgroup                                          │
+ │ [*] Network classid cgroup                                           │
+ │ [*] enable BPF Just In Time compiler                                 │
+ │ [*] enable BPF STREAM_PARSER                                         │
+ │     Network testing  --->   
+                                         │
+ ┌── Network packet filtering framework (Netfilter) ────────────────────┐
  │                                                                      │
- │ [ ]   OKI Semiconductor devices                                      │
- │ < >   OpenCores 10/100 Mbps Ethernet MAC support                     │
- │ [ ]   Packet Engine devices                                          │
- │ [ ]   QLogic devices                                                 │
- │ [ ]   Qualcomm devices                                               │
- │ [ ]   RDC devices                                                    │
- │ [*]   Realtek devices                                                │
- │ < >     RealTek RTL-8139 C+ PCI Fast Ethernet Adapter support        │
- │ < >     RealTek RTL-8129/8130/8139 PCI Fast Ethernet Adapter supp    │
- │ <M>     Realtek 8169 gigabit ethernet support 
+ │                                                                  │
+ │        --- Network packet filtering framework (Netfilter)            │
+ │        [*]   Advanced netfilter configuration                        │
+ │              Core Netfilter Configuration  --->                      │
+ │        < >   IP set support  ----                                    │
+ │        < >   IP virtual server support  ----                         │
+ │              IP: Netfilter Configuration  --->                       │
 
 
- ┌── Pin controllers ───────────────────────────────────────────────────┐
+
+
+┌── Core Netfilter Configuration ──────────────────────────────────────┐
  │                                                                      │
- │      --- Pin controllers                                             │
- │      [ ]   Debug PINCTRL calls                                       │
- │      <*>   AMD GPIO pin control                                      │
- │      < >   Microchip MCP23xxx I/O expander                           │
- │      [ ]   Semtech SX150x I2C GPIO expander pinctrl driver           │
- │      [*]   Intel Baytrail GPIO pin control                           │
- │      <*>   Intel Cherryview/Braswell pinctrl and GPIO driver         │
- │      <*>   Intel Broxton pinctrl and GPIO driver                     │
- │      <*>   Intel Cannon Lake PCH pinctrl and GPIO driver             │
- │      <*>   Intel Cedar Fork pinctrl and GPIO driver                  │
- │      <*>   Intel Denverton pinctrl and GPIO driver                   │
- │      <*>   Intel Gemini Lake SoC pinctrl and GPIO driver             │
- │      <*>   Intel Ice Lake PCH pinctrl and GPIO driver                │
- │      <*>   Intel Lewisburg pinctrl and GPIO driver                   │
- │      <*>   Intel Sunrisepoint pinctrl and GPIO driver                │
- │                                                         
-
- ┌── GPIO Support ──────────────────────────────────────────────────────┐
- │                                                                      │
- │          --- GPIO Support                                            │
- │              (512) Maximum number of GPIOs for fast path             │
- │          [ ]   Debug GPIO calls                                      │
- │          [*]   /sys/class/gpio/... (sysfs interface)                 │
- │                Memory mapped GPIO drivers  --->                      │
- │                Port-mapped I/O GPIO drivers  --->                    │
- │                I2C GPIO expanders  --->                              │
- │                MFD GPIO expanders  ----                              │
- │                PCI GPIO expanders  --->                              │
- │                SPI GPIO expanders  --->                              │
- │                USB GPIO expanders  ----                              │
- │                                                                      │
-
- │ {*} Hardware Monitoring support  --->    
- │ 	< >   AMD Family 10h+ temperature sensor                             │
- │ 	< >   AMD Family 15h processor power   
+ │    [*] Netfilter ingress support                                     │
+ │    < > Netfilter NFACCT over NFNETLINK interface                     │
+ │    < > Netfilter NFQUEUE over NFNETLINK interface                    │
+ │    < > Netfilter LOG over NFNETLINK interface                        │
+ │    < > Netfilter OSF over NFNETLINK interface                        │
+ │    < > Netfilter connection tracking support                         │
+ │    < > Netdev packet logging                                         │
+ │    <M> Netfilter nf_tables support                                   │
+ │    < >   Netfilter nf_tables set infrastructure                      │
+ │    [*]   Netfilter nf_tables netdev tables support                   │
+ │    < >   Netfilter nf_tables number generator module                 │
+ │    < >   Netfilter nf_tables counter module                          │
+ │    < >   Netfilter nf_tables log module                              │
+ │    < >   Netfilter nf_tables limit module                            │
+ │    < >   Netfilter nf_tables tunnel module                           │
+ │    < >   Netfilter nf_tables stateful object reference module        │
+ │    < >   Netfilter nf_tables quota module                            │
+ │    < >   Netfilter nf_tables reject support                          │
+ │    < >   Netfilter x_tables over nf_tables module                    │
+ │    < >   Netfilter nf_tables hash module                             │
+ │    < >   Netfilter nf_tables socket match support                    │
+ │    < >   Netfilter nf_tables passive OS fingerprint support          │
+ │    < >   Netfilter nf_tables tproxy support                          │
+ │    < >   Netfilter packet duplication support                        │
+ │    < >   Netfilter nf_tables netdev packet duplication support       │
+ │    < >   Netfilter nf_tables netdev packet forwarding support        │
 
 
-┌── Generic Thermal sysfs driver ──────────────────────────────────────┐
- │                                                                      │
- │        --- Generic Thermal sysfs driver                              │
- │        [*]   Thermal state transition statistics                     │
- │            (0)   Emergency poweroff delay in milli-seconds           │
- │        [*]   Expose thermal sensors as hwmon device                  │
- │        [*]   Enable writable trip points                             │
- │              Default Thermal governor (step_wise)  --->              │
- │        [*]   Fair-share thermal governor                             │
- │        -*-   Step_wise thermal governor                              │
- │        [*]   Bang Bang thermal governor                              │
- │        [*]   User_space thermal governor                             │
- │        [ ]   Power allocator thermal governor                        │
- │        [ ]   Generic clock cooling support                           │
- │        [*]   Generic device cooling support                          │
- │        [ ]   Thermal emulation mode support                          │
- │        < >   Intel PowerClamp idle injection driver                  │
- │        < >   X86 package temperature thermal driver                  │
- │        < >   Intel SoCs DTS thermal driver                           │
- │              ACPI INT340X thermal drivers  --->                      │
- │        < >   Intel PCH Thermal Reporting Driver                      │
+│   ┌── IP: Netfilter Configuration ───────────────────────────────────────┐
+                                                                    │
+ │  < > IPv4 socket lookup support                                      │
+ │  < > IPv4 tproxy support                                             │
+ │  [*] IPv4 nf_tables support                                          │
+ │  < >   IPv4 nf_tables route chain support                            │
+ │  < >   IPv4 nf_tables packet duplication support                     │
+ │  < >   nf_tables fib / ip route lookup support                       │
+ │  [*] ARP nf_tables support                                           │
+ │  < > Netfilter IPv4 packet duplication to alternate destination      │
+ │  < > ARP packet logging                                              │
+ │  < > IPv4 packet logging                                             │
+ │  < > IPv4 packet rejection                                           │
+ │  <M> IP tables support (required for filtering/masq/NAT)             │
+ │  < >   "ah" match support                                            │
+ │  < >   "ecn" match support                                           │
+ │  < >   "ttl" match support                                           │
+ │  < >   Packet filtering                                              │
+ │  < >   Packet mangling                                               │
+ │  < >   raw table support (required for NOTRACK/TRACE)                │
+ │  < >   Security table                                                │
+ │  < > ARP tables support                                              │
 
- │ [ ] Voltage and Current Regulator Support  ----                      │
 
-
- │ < > Multimedia support  ----                                         │
-
-┌── Graphics support ──────────────────────────────────────────────────┐
- │                                                                      │
- │ <*> /dev/agpgart (AGP Support)  --->                                 │
- │ -*- VGA Arbitration                                                  │
- │     (16)  Maximum number of GPUs                                     │
- │ [*] Laptop Hybrid Graphics - GPU switching support                   │
- │ <M> Direct Rendering Manager (XFree86 4.1.0 and higher DRI suppor    │
- │ [*] Enable DisplayPort CEC-Tunneling-over-AUX HDMI support           │
- │     I2C encoder or helper chips  --->                                │
- │ < > ATI Radeon                                                       │
- │ <M> AMD GPU                                                          │
- │ [*]   Enable amdgpu support for SI parts                             │
- │ [*]   Enable amdgpu support for CIK parts                            │
- │ [*]   Always enable userptr write support                            │
- │ [ ]   Allow GART access through debugfs                              │
- │     ACP (Audio CoProcessor) Configuration  --->                      │
- │     Display Engine Configuration  --->                               │
- │     AMD Library routines  --->                                       │
- │ < > Nouveau (NVIDIA) cards                                           │
- │ < > Intel 8xx/9xx/G3x/G4x/HD Graphics                                │
- │ < > Virtual GEM provider                                             │
- │ < > Virtual KMS (EXPERIMENTAL)                                       │
- │ < > DRM driver for VMware Virtual GPU                                │
- │ < > Intel GMA5/600 KMS Framebuffer                                   │
- │ < > DisplayLink                                                      │
- │ < > AST server chips                                                 │
- │ < > Kernel modesetting driver for MGA G200 server engines            │
- │ < > Cirrus driver for QEMU emulated device                           │
- │ <M> HSA kernel driver for AMD GPU devices                            │
- │ < > DRM Support for Hisilicon Hibmc                                  │
- │ < > Support for simple displays  ----                                │
- │ [*] DRM Support for Xen guest OS                                     │
- │ < >   Para-virtualized frontend driver for Xen guest OS              │
- │ [*] Enable legacy drivers (DANGEROUS)  --->                          │
- │     Frame buffer Devices  --->                                       │
- │ -*- Backlight & LCD device support  --->                             │
- │     Console display driver support  --->                             │
- │ [ ] Bootup logo  ----                                                │
 
 
 
