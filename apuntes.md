@@ -145,7 +145,7 @@ NAME = "People's Front"
 Con la opción localmodconfig se configura el fichero .config adaptandolo a las necesidades de nuetra máquina. 
 ~~~
 $ make localmodconfig
-
+~~~
 
 
 
