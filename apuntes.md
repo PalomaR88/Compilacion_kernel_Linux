@@ -37,6 +37,7 @@ file initrd.img-4.19.0-6amd64
 du -hs /lib/modules/4.19.0-6-amd64/
 ~~~
 
+# Compilación
 ### Manejo de módulos
 Para ver los módulos adicionales que está usando la máquina, normalmente por hardware:
 ~~~
