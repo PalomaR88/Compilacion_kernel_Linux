@@ -168,7 +168,7 @@ sudo apt-get install libqt4-dev
 make xconfig
 ~~~
 
-### Compilación
+### Compilación, último paso
 Para compilar se usa el siguiente comando:
 ~~~
 $ make -j2 deb-pkg
